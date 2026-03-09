@@ -11,14 +11,21 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		System.out.println("=== TESTE 1 ====");
+		System.out.println("=== TESTE 1 Find By ID ====");
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
 		
-		System.out.println("=== TESTE 2 ====");
+		System.out.println("=== TESTE 2 Find By Department ====");
 		Department department = new Department  (2, null);
 		List<Seller> list = sellerDao.findByDepartment(department);
+		for(Seller obj : list) {
+			System.out.println(obj);
+		}
+		
+		System.out.println("=== TESTE 3 Find All ====");
+		
+		list = sellerDao.findAll();
 		for(Seller obj : list) {
 			System.out.println(obj);
 		}
